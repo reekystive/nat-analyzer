@@ -1,4 +1,4 @@
-package org.reeky.natanalyzer.ui.theme
+package org.reeky.natutils.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

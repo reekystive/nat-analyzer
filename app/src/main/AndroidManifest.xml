@@ -10,12 +10,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NATAnalyzer"
+        android:theme="@style/Theme.NATUtils"
         tools:targetApi="34">
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.NATAnalyzer">
+            android:theme="@style/Theme.NATUtils">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

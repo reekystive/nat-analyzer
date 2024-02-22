@@ -1,4 +1,4 @@
-package org.reeky.natanalyzer
+package org.reeky.natutils
 
 import org.junit.Test
 

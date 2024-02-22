@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "org.reeky.natanalyzer"
+    namespace = "org.reeky.natutils"
     compileSdk = 34
     defaultConfig {
-        applicationId = "org.reeky.natanalyzer"
+        applicationId = "org.reeky.natutils"
         minSdk = 29
         targetSdk = 34
         versionCode = 1

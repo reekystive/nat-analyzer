@@ -21,5 +21,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "NAT Analyzer"
+rootProject.name = "NAT Utils"
 include(":app")

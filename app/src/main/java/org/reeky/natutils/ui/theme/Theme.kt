@@ -1,4 +1,4 @@
-package org.reeky.natanalyzer.ui.theme
+package org.reeky.natutils.ui.theme
 
 import android.app.Activity
 import android.os.Build
@@ -38,7 +38,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun NATAnalyzerTheme(
+fun NATUtilsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

@@ -1,4 +1,4 @@
-package org.reeky.natanalyzer
+package org.reeky.natutils
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("org.reeky.natanalyzer", appContext.packageName)
+        assertEquals("org.reeky.natutils", appContext.packageName)
     }
 }
