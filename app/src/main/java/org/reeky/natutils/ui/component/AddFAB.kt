@@ -9,21 +9,22 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.Wallpapers
 import org.reeky.natutils.ui.theme.NATUtilsTheme
 
 @Composable
 fun AddFAB(onPress: () -> Unit) {
     ExtendedFloatingActionButton(
-        containerColor = MaterialTheme.colorScheme.primaryContainer,
-        contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+        containerColor = MaterialTheme.colorScheme.primary,
+        contentColor = MaterialTheme.colorScheme.onPrimary,
         onClick = { onPress() },
         icon = { Icon(Icons.Default.Add, "Add") },
         text = { Text(text = "Add") },
     )
 }
 
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, wallpaper = Wallpapers.RED_DOMINATED_EXAMPLE)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, wallpaper = Wallpapers.RED_DOMINATED_EXAMPLE)
 @Composable
 fun AddFABPreview() {
     NATUtilsTheme {
