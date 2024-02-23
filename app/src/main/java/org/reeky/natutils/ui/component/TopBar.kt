@@ -12,8 +12,8 @@ import androidx.compose.runtime.Composable
 fun TopBar() {
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            titleContentColor = MaterialTheme.colorScheme.primary,
+            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+            titleContentColor = MaterialTheme.colorScheme.onTertiaryContainer,
         ),
         title = {
             Text("NAT Utils")

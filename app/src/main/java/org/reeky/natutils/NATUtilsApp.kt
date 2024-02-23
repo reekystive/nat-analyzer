@@ -1,3 +1,5 @@
+package org.reeky.natutils
+
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -50,7 +52,7 @@ fun NATUtilsApp() {
             Text(
                 modifier = Modifier.padding(8.dp),
                 text = "You have pressed the floating action button $presses times.${
-                    ("\n\n" + LOREM_IPSUM).repeat(10)
+                    ("\n\n" + LOREM_IPSUM).repeat(28)
                 }",
             )
             BottomInsetSpacer()
