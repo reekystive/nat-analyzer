@@ -1,5 +1,4 @@
 import android.content.res.Configuration
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -8,7 +7,7 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,11 +27,12 @@ val LOREM_IPSUM = """
     Lorem veniam aliqua laboris ex ad nostrud adipisicing tempor sint eu mollit nulla est voluptate nisi. Deserunt fugiat in aute deserunt et do consequat velit consequat cupidatat nisi laboris. Ex est aliqua eiusmod. Adipisicing incididunt aliqua reprehenderit aute ea consectetur velit duis consequat. Proident esse non eiusmod officia voluptate commodo.
 """.trimIndent()
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NATUtilsApp() {
     var presses by remember { mutableIntStateOf(0) }
     Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
+        contentColor = MaterialTheme.colorScheme.onBackground,
         contentWindowInsets = WindowInsets(0.dp),
         topBar = { TopBar() },
         floatingActionButton = {
@@ -46,7 +46,6 @@ fun NATUtilsApp() {
             modifier = Modifier
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             Text(
                 modifier = Modifier.padding(8.dp),
