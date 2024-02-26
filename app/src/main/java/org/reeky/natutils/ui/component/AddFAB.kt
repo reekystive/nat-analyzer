@@ -8,13 +8,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.Wallpapers
 import org.reeky.natutils.ui.theme.NATUtilsTheme
 
 @Composable
-fun AddFAB(onPress: () -> Unit) {
+fun AddFAB(modifier: Modifier = Modifier, onPress: () -> Unit) {
     ExtendedFloatingActionButton(
+        modifier = modifier,
         containerColor = MaterialTheme.colorScheme.primary,
         contentColor = MaterialTheme.colorScheme.onPrimary,
         onClick = { onPress() },

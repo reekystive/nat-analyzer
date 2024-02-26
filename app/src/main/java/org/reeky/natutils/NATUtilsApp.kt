@@ -1,72 +1,58 @@
 package org.reeky.natutils
 
 import android.content.res.Configuration
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBars
-import androidx.compose.foundation.layout.windowInsetsBottomHeight
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
+import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import org.reeky.natutils.ui.component.AddFAB
+import org.reeky.natutils.ui.component.NavBar
 import org.reeky.natutils.ui.component.TopBar
+import org.reeky.natutils.ui.screen.HistoryScreen
+import org.reeky.natutils.ui.screen.HomeScreen
+import org.reeky.natutils.ui.screen.NetworkScreen
+import org.reeky.natutils.ui.screen.SettingsScreen
 import org.reeky.natutils.ui.theme.NATUtilsTheme
 
-@Suppress("SpellCheckingInspection")
-val LOREM_IPSUM = """
-    Lorem veniam aliqua laboris ex ad nostrud adipisicing tempor sint eu mollit nulla est voluptate nisi. Deserunt fugiat in aute deserunt et do consequat velit consequat cupidatat nisi laboris. Ex est aliqua eiusmod. Adipisicing incididunt aliqua reprehenderit aute ea consectetur velit duis consequat. Proident esse non eiusmod officia voluptate commodo.
-""".trimIndent()
-
+@OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @Composable
 fun NATUtilsApp() {
-    var presses by remember { mutableIntStateOf(0) }
+    val selectedTabState = remember { mutableIntStateOf(0) }
+    val windowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         contentColor = MaterialTheme.colorScheme.onBackground,
         contentWindowInsets = WindowInsets(0.dp),
         topBar = { TopBar() },
-        floatingActionButton = {
-            Column {
-                AddFAB { presses++ }
-                BottomInsetSpacer()
+        bottomBar = {
+            if (windowSizeClass.widthSizeClass == WindowWidthSizeClass.Compact) {
+                NavBar(selectedTabState = selectedTabState)
             }
         },
     ) { innerPadding ->
-        Column(
+        Box(
             modifier = Modifier
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState()),
+                .fillMaxSize()
+                .padding(innerPadding),
         ) {
-            Text(
-                modifier = Modifier.padding(8.dp),
-                text = "You have pressed the floating action button $presses times.${
-                    ("\n\n" + LOREM_IPSUM).repeat(28)
-                }",
-            )
-            BottomInsetSpacer()
+            when (selectedTabState.intValue) {
+                0 -> HomeScreen()
+                1 -> NetworkScreen()
+                2 -> HistoryScreen()
+                3 -> SettingsScreen()
+            }
         }
     }
-}
-
-@Composable
-fun BottomInsetSpacer() {
-    Spacer(
-        Modifier.windowInsetsBottomHeight(
-            WindowInsets.systemBars
-        )
-    )
 }
 
 @Preview(showBackground = true)
